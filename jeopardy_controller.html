@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="g_jeo_ctrl.js"></script>
+        <link rel="stylesheet" type="text/css" href="g_jeo_ctrl.css" />
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="immagini/genshin/genshin-stellar-moments-vol-3.jpg" type="image/x-icon">
+        <title>Jeopardy Controller</title>
+    </head>
+    <body>
+        <h1 id="header">Jeopardy Controller</h1>
+        <input id="prize" type="text">
+        <br>
+        <div id="players">
+            <div id="player_tab0" class="player_tab">
+                <div id="cover0" class="cover"></div>
+                <h1 id="player_head0" class="player_head">Player 0</h1>
+                <input type="text" id="name0" class="player_name">
+                <button class="okBtn" onclick="Player.name(0)">ok</button>
+                <br>
+                <input type="color" id="color0" class="player_color">
+                <button class="okBtn" onclick="Player.color(0)">ok</button>
+                <div class="points">
+                    <button class="pointBtn" onclick="Points.remove(0)"><b>-</b></button>
+                    <button class="pointBtn" onclick="Points.set(0)"><b>=</b></button>
+                    <button class="pointBtn" onclick="Points.add(0)"><b>+</b></button>
+                </div>
+                <button class="toggleBtn" onclick="Player.toggle(0)">on/off</button>
+            </div>
+            <div id="player_tab1" class="player_tab">
+                <div id="cover1" class="cover"></div>
+                <h1 id="player_head1" class="player_head">Player 1</h1>
+                <input type="text" id="name1" class="player_name">
+                <button class="okBtn" onclick="Player.name(1)">ok</button>
+                <br>
+                <input type="color" id="color1" class="player_color">
+                <button class="okBtn" onclick="Player.color(1)">ok</button>
+                <div class="points">
+                    <button class="pointBtn" onclick="Points.remove(1)"><b>-</b></button>
+                    <button class="pointBtn" onclick="Points.set(1)"><b>=</b></button>
+                    <button class="pointBtn" onclick="Points.add(1)"><b>+</b></button>
+                </div>
+                <button class="toggleBtn" onclick="Player.toggle(1)">on/off</button>
+            </div>
+            <div id="player_tab2" class="player_tab">
+                <div id="cover2" class="cover"></div>
+                <h1 id="player_head2" class="player_head">Player 2</h1>
+                <input type="text" id="name2" class="player_name">
+                <button class="okBtn" onclick="Player.name(2)">ok</button>
+                <br>
+                <input type="color" id="color2" class="player_color">
+                <button class="okBtn" onclick="Player.color(2)">ok</button>
+                <div class="points">
+                    <button class="pointBtn" onclick="Points.remove(2)"><b>-</b></button>
+                    <button class="pointBtn" onclick="Points.set(2)"><b>=</b></button>
+                    <button class="pointBtn" onclick="Points.add(2)"><b>+</b></button>
+                </div>
+                <button class="toggleBtn" onclick="Player.toggle(2)">on/off</button>
+            </div>
+            <div id="player_tab3" class="player_tab">
+                <div id="cover3" class="cover"></div>
+                <h1 id="player_head3" class="player_head">Player 3</h1>
+                <input type="text" id="name3" class="player_name">
+                <button class="okBtn" onclick="Player.name(3)">ok</button>
+                <br>
+                <input type="color" id="color3" class="player_color">
+                <button class="okBtn" onclick="Player.color(3)">ok</button>
+                <div class="points">
+                    <button class="pointBtn" onclick="Points.remove(3)"><b>-</b></button>
+                    <button class="pointBtn" onclick="Points.set(3)"><b>=</b></button>
+                    <button class="pointBtn" onclick="Points.add(3)"><b>+</b></button>
+                </div>
+                <button class="toggleBtn" onclick="Player.toggle(3)">on/off</button>
+            </div>
+            <div id="player_tab4" class="player_tab">
+                <div id="cover4" class="cover"></div>
+                <h1 id="player_head4" class="player_head">Player 4</h1>
+                <input type="text" id="name4" class="player_name">
+                <button class="okBtn" onclick="Player.name(4)">ok</button>
+                <br>
+                <input type="color" id="color4" class="player_color">
+                <button class="okBtn" onclick="Player.color(4)">ok</button>
+                <div class="points">
+                    <button class="pointBtn" onclick="Points.remove(4)"><b>-</b></button>
+                    <button class="pointBtn" onclick="Points.set(4)"><b>=</b></button>
+                    <button class="pointBtn" onclick="Points.add(4)"><b>+</b></button>
+                </div>
+                <button class="toggleBtn" onclick="Player.toggle(4)">on/off</button>
+            </div>
+        </div>
+        <h1 id="tabellone_head">Tabellone</h1>
+        <div id="tabellone">
+            <button id="questBtn1" class="questBtn" onclick="Board.load(0)">Genshin 1</button>
+            <button id="questBtn1" class="questBtn" onclick="Board.load(1)">Genshin 2</button>
+            <button id="questBtn2" class="questBtn" onclick="Board.load(2)">GOG</button>
+            <button id="questBtn2" class="questBtn" onclick="Board.load(3)">??</button>
+            <button id="questBtn2" class="questBtn" onclick="Board.load(4)">??</button>
+        </div>
+    </body>
+</html>

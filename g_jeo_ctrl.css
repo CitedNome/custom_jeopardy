@@ -1,0 +1,131 @@
+:root {
+    --gold: rgb(255, 208, 0);
+    --blues: rgb(5, 5, 200);
+    --dark-blues: rgb(3, 3, 172);    
+}
+
+body {
+    text-align: center;
+    background-color: rgb(20, 19, 24);
+}
+
+#header{
+    font-size: 50px;
+    color: white;
+}
+
+#prize {
+    text-align: center;
+    margin-bottom: 25px;
+    height: 75px;
+    width: 175px;
+    font-size: 50px;
+    border-radius: 50px;
+    border: solid var(--gold) 3.5px;
+    background-color: var(--blues);
+    color: var(--gold);
+}
+
+#players {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.player_tab {
+    position: relative;
+    width: 225px;
+    height: 177.5px;
+    background-color: rgb(47, 46, 48);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.player_head{
+    margin: 0;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.okBtn {
+    width: 30px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.player_name {
+    text-align: center;
+    width: 100px;
+    height: 22.5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: none
+}
+
+.player_color {
+    border: none;
+    height: 25px;
+}
+
+.points {
+    margin-top: 10px;
+}
+
+.pointBtn{
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: solid white;
+    color: white;
+}
+
+.pointBtn:nth-child(1) {
+    background-color: darkred;
+}
+
+.pointBtn:nth-child(2) {
+    background-color: darkorange;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.pointBtn:nth-child(3) {
+    background-color: darkgreen;
+}
+
+.toggleBtn {
+    margin-top: 25px;
+    width: 62.5px;
+    height: 35px;
+    font-size: 15px;
+}
+
+#tabellone_head{
+    margin-top: 75px;
+    color: white;
+}
+
+.questBtn {
+    width: 100px;
+    height: 40px;
+    font-size: 17.5px;
+    border: none;
+    border-radius: 10px;
+}
