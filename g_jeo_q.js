@@ -5,7 +5,7 @@ var genshin1 = [
     [[0, "Nomina almeno due delle Hypostasis"],[0, "Quale spada 5★ può curare i personaggi appena vengono feriti?"],[0, "Chi ha scritto il libro 'Teyvat Travel Guide'?"],[0, "Di che colore sono gli occhi di Glory?"],[0, "Qual è il nome della sorella maggiore della dr. Edith?"]],
     [[0, "Qual è il nome della biblioteca dell'Akademiya?"],[0, "Qual è il nome della locanda di Diluc?"],[0, "Dove si trova il corpo di Durin?"],[0, "Nomina almeno due dei luoghi in cui si può trovare una 'Divine Nail'"],[0, "Dove avviene il primo contatto tra Nahida e Traveler?"]],
     [[0, "Qual è il vero nome di Fischl?"], [0, "Quali personaggi giocabili fanno parte del Clan Gunnhildr?"], [0, "Chi strozzò a morte involontariamente un mostro che tentava di mangiarl*?"], [0, "Chi ricopre il ruolo di Grand Master of the Knights of Favonius?"], [0,"Chi scrive lettere a Lisa per imparare ad usare parole nuove?"]],
-    [[0, "Quanta Masterless Starglitter è necessaria per comprare un personaggio?"], [0, "Qual'era il motto della miHoYo?"], [0, "Quali personaggi giocabili hanno fatto una apparizione su Honkai Impact 3rd?"], [0,"Quando si celebra l'anniversario del gioco?"], [0, "Quante Masterless Stardust costerebbe un wish senza lo sconto?"]],
+    [[0, "Quanta Masterless Starglitter è necessaria per comprare un personaggio?"], [0, "Qual era il motto della miHoYo?"], [0, "Quali personaggi giocabili hanno fatto una apparizione su Honkai Impact 3rd?"], [0,"Quando si celebra l'anniversario del gioco?"], [0, "Quante Masterless Stardust costerebbe un wish senza lo sconto?"]],
     ["Personaggi", "Random", "Luoghi", "Lore", "Genshin"]
 ]
 
