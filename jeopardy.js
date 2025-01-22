@@ -1,5 +1,44 @@
+//HANDLER CONNESSIONI
+const self_id = "jeo";
+
+const cox = new BroadcastChannel("Jeopardy_Cox");
+
+//const jc = new BroadcastChannel("Jeopardy_Channel");
+
+// jc.onmessage = (event) => {
+//     console.log("[BC]: " + event.data);
+//     eval(event.data)
+// };
+
+cox.onmessage = (event) => {
+    const {from, to, payload} = event.data;
+    if (to.includes(self_id)) {
+        console.log(`from "${from}": ${payload}`);
+        eval(payload)
+    }
+}
+
+function signal(receiver, content){
+    cox.postMessage({from: self_id, to: receiver, payload: content})
+    console.log(`to "${receiver}": ${content}`);
+}
+
+// function message(content) {
+//     console.log("[BC]> " + content);
+//     jc.postMessage(content);
+// }
+
 //TABELLONI QUIZ VARI
 // > 0 = text, 1 = img
+var gog = [
+    [[0, ], [0, ], [0, ], [0, ], [0, ]],
+    [[0, ], [0, ], [0, ], [0, ], [0, ]],
+    [[0, ], [0, ], [0, ], [0, ], [0, ]],
+    [[0, ], [0, ], [0, ], [0, ], [0, ]],
+    [[0, ], [0, ], [0, ], [0, ], [0, ]],
+    ["Gog 1", "Gog 2", "Gog 3", "Gog 4", "Gog 5"]
+]
+
 var genshin1 = [
     [[0, "Qual è il nome, ispirato all'Ars Goetia, dell'Archon Dendro?"],[0, "Quali sono i tre personaggi che hanno un parry come skill?"],[0, "Un personaggio che non tocca mai la propria arma."],[0, "Chi scrive per un giornale di Fontaine noto in tutta Teyvat?"],[0, "Quante sono le divinità giocabili?"]],
     [[0, "Nomina almeno due delle Hypostasis"],[0, "Quale spada 5★ può curare i personaggi appena vengono feriti?"],[0, "Chi ha scritto il libro 'Teyvat Travel Guide'?"],[0, "Di che colore sono gli occhi di Glory?"],[0, "Qual è il nome della sorella maggiore della dr. Edith?"]],
@@ -10,34 +49,13 @@ var genshin1 = [
 ]
 
 var genshin2 = [
-    [[1, "immagini/genshin/namecards/bennett_namecard.webp"], [1, "immagini/genshin/namecards/rosaria_namecard.webp"], [1, "immagini/genshin/namecards/ayato_namecard.webp"], [1, "immagini/genshin/namecards/noelle_namecard.webp"], [1, "immagini/genshin/namecards/albedo_namecard.webp"]],
+    [[1, "immagini/namecards/bennett_namecard.webp"], [1, "immagini/namecards/rosaria_namecard.webp"], [1, "immagini/namecards/ayato_namecard.webp"], [1, "immagini/namecards/noelle_namecard.webp"], [1, "immagini/namecards/albedo_namecard.webp"]],
     [[0, ], [0, ], [0, ], [0, ], [0, ]],
     [[0, ], [0, ], [0, ], [0, ], [0, ]],
     [[0, ], [0, ], [0, ], [0, ], [0, ]],
     [[0, ], [0, ], [0, ], [0, ], [0, ]],
     ["Namecards", "", "", "", ""]
 ]
-
-var gog = [
-    [[0, ], [0, ], [0, ], [0, ], [0, ]],
-    [[0, ], [0, ], [0, ], [0, ], [0, ]],
-    [[0, ], [0, ], [0, ], [0, ], [0, ]],
-    [[0, ], [0, ], [0, ], [0, ], [0, ]],
-    [[0, ], [0, ], [0, ], [0, ], [0, ]],
-    ["Gog 1", "Gog 2", "Gog 3", "Gog 4", "Gog 5"]
-]
-
-//HANDLER CONNESSIONI
-const jc = new BroadcastChannel("Jeopardy_Channel");
-
-jc.onmessage = (event) => {
-    //console.log(event);
-    eval(event.data)
-};
-
-//PRESET QUIZ GENSHIN
-var jSet = null;
-loadBoard(2);
 
 //QUIZ
 function triggerCell(cat, cell) {
@@ -48,15 +66,16 @@ function triggerCell(cat, cell) {
     let dmd = document.getElementById("domandaDiv");
 
     //Ripristina
-    if(td.style.backgroundColor == "rgb(49, 48, 48)"){//Gray
-        td.style.backgroundColor = "rgb(5, 5, 194)";//Blue
+    if(td.style.backgroundColor == "var(--gray)"){//Gray
+        td.style.backgroundColor = "";//Blue/Unset (così prende dalla classe e :hover funziona) "var(--blues)";
         return
     }
     //Disattiva
     else {
-        td.style.backgroundColor = "rgb(49, 48, 48)";//Gray
+        td.style.backgroundColor = "var(--gray)";//Gray
         //Invia Valore Domanda al Controller
-        jc.postMessage(`loadPrize(${(cell + 1) * 200})`)
+        //message(`loadPrize(${(cell + 1) * 100})`)
+        signal(["set", "ctr"], `loadPrize(${(cell + 1) * 100})`);
         //Domanda Testo
         if (dmc == 0) {
             dmd.innerHTML = `<h2 id="domandaTesto">${jSet[cat][cell][1]}</h2>`;
@@ -113,7 +132,13 @@ var Player =  {
     },
 
     active(id) {
+        document.getElementById("player0").style.border = "";
+        document.getElementById("player1").style.border = "";
+        document.getElementById("player2").style.border = "";
+        document.getElementById("player3").style.border = "";
+        document.getElementById("player4").style.border = "";
         let player = document.getElementById(`player${id}`);
+        player.style.border = "3px solid var(--gold)";
         
     },
 
@@ -147,21 +172,29 @@ var Player =  {
     }
 }
 
-function loadBoard(id){
-    if (id==0) {
-        jSet = genshin1;
-    }
-    if (id==1) {
-        jSet = genshin2;
-    }
-    if (id==2) {
-        jSet = gog;
-    }
-
-    for (let i=0; i<5; i++) {
-        document.getElementById("th"+i).innerHTML = jSet[5][i]
+var Board = {
+    load(id){
+        if (id==0) {
+            jSet = gog;
+        }
+        if (id==1) {
+            jSet = genshin1;
+        }
+        if (id==2) {
+            jSet = genshin2;
+        }
+        for (let i=0; i<5; i++) {
+            document.getElementById("th"+i).innerHTML = jSet[5][i]
+        }
+    },
+    bg(bg_id){
+        document.querySelector("body").style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(immagini/bg/" + bg_id + ".png)";
     }
 }
+
+//PRESET QUIZ vuoto
+var jSet = null;
+Board.load(0);
 
 function help(){
     console.log('>loadQuest(id): load a different set of questions on the main board\n-->id: 0 = "genshin1", 1 = "genshin2" ...\n>Player\n-->set(id, name color): set <name> & <color> of <id> player\n-->score(id, value): give +<value> points to <id> player\n-->clear(id): resets <id> player to default\n-->zero(id): set <id> player\'s points to 0')

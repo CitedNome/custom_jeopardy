@@ -1,1 +1,1 @@
-python3 -m http.server 5050
+start firefox.exe "http://localhost:5050/" & python3 -m http.server 5050

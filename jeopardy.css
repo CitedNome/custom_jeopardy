@@ -1,7 +1,12 @@
 :root {
     --gold: rgb(255, 208, 0);
-    --blues: rgb(5, 5, 200);
-    --dark-blues: rgb(3, 3, 172);    
+    --gray: rgb(49, 48, 48);
+    --blues: rgb(0, 10, 80);
+    --shiny-blues: rgb(0, 10, 100);
+}
+
+* {
+    user-select: none;
 }
 
 body {
@@ -10,19 +15,22 @@ body {
     text-align: center;
     margin: 0 auto;
     transition: all 0.5s;
+    position: relative;
+    height: 97vh;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
 }
 
 table{
     color: var(--gold);
     margin: 0 auto;
     margin-top: 20px;
-    border-spacing: 20px;
+    border-spacing: 10px;
     font-size: 30px;
 }
 
 th {
     font-size: 40px;
-
 }
 
 td {
@@ -32,9 +40,21 @@ td {
     color: var(--gold);
     background-color: var(--blues);
     transition: all 0.75s;
+    /*border: solid var(--gold) 2px;*/
+    border-radius: 0px;
+}
+
+/* //Vecchio styling delle celle della tabella
+.td { 
+    height: 120px;
+    width: 270px;
+    font-size: 60px;
+    color: var(--gold);
+    background-color: var(--blues);
+    transition: all 0.75s;
     border: solid var(--gold) 2px;
     border-radius: 10px;
-}
+} */
 
 #domandaDiv{
     background-color: var(--blues);
@@ -81,13 +101,17 @@ td {
 }
 
 #stockhausen {
+    margin-top: 10px;
     height: 190px;
-    text-align: center;
-    /*! background-color: rgb(20, 20, 20); */
     display: flex;
+    text-align: center;
     flex-direction: column;
     justify-content: center;
-
+    /*     
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(20, 20, 20);
+    */
 }
 
 #playersDiv {
@@ -130,7 +154,8 @@ td {
 
 td:hover {
     cursor: pointer;
-    scale: 105%;
+    scale: 102.5%;
+    background-color: var(--shiny-blues);
 }
 
 @keyframes pulse {

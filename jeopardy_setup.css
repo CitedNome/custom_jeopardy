@@ -1,17 +1,17 @@
 :root {
     --gold: rgb(255, 208, 0);
-    --blues: rgb(5, 5, 200);
-    --dark-blues: rgb(3, 3, 172);    
+    --blues: rgb(0, 10, 80);
+    --shiny-blues: rgb(0, 10, 100);
 }
 
 body {
     text-align: center;
     background-color: rgb(20, 19, 24);
+    color: white;
 }
 
 #header{
     font-size: 50px;
-    color: white;
 }
 
 #prize {
@@ -100,10 +100,7 @@ body {
 
 .pointBtn:nth-child(2) {
     background-color: darkorange;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 
 .pointBtn:nth-child(3) {
@@ -117,15 +114,40 @@ body {
     font-size: 15px;
 }
 
-#tabellone_head{
+#tabellone{
     margin-top: 75px;
     color: white;
 }
 
-.questBtn {
+.boardBtn {
     width: 100px;
     height: 40px;
     font-size: 17.5px;
     border: none;
     border-radius: 10px;
+}
+
+.questBtn {
+    margin-bottom: 5px;
+    background-color: rgb(200, 200, 255);
+}
+
+.bgBtn {
+    background-size: cover;
+}
+
+.bgBtn:nth-child(1) {
+    background-image: url("immagini/bg/0.png");
+}
+.bgBtn:nth-child(2) {
+    background-image: url("immagini/bg/1.png");
+}
+.bgBtn:nth-child(3) {
+    background-image: url("immagini/bg/2.png");
+}
+.bgBtn:nth-child(4) {
+    background-image: url("immagini/bg/3.png");
+}
+.bgBtn:nth-child(5) {
+    background-image: url("immagini/bg/4.png");
 }
